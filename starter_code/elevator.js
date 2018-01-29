@@ -1,10 +1,14 @@
+const Person = require('./person.js');
+
 class Elevator {
   constructor(){
-    this.floor      = 0;
-    this.MAXFLOOR   = 10;
-    this.requests   = [];
-    this.direction  = "up";
+    this.floor       = 0;
+    this.MAXFLOOR    = 10;
+    this.requests    = [];
+    this.direction   = "up";
     this.interval;
+    this.waitingList = [];
+    this.passengers  = [];
   }
 
   start() { 
@@ -28,7 +32,10 @@ class Elevator {
       this.floor--;
     }
   }
-  call() { }
+  call(pers) {
+    this.waitingList.push(pers);
+    this.requests.push(pers.originFloor);
+  }
   log() { 
     return console.log(`Direction ${this.direction} | Floor: ${this.floor}`);
   }
