@@ -12,15 +12,22 @@ class Elevator {
   }
   stop() { 
     clearInterval(this.interval)
-   // return;
   }
   update() { 
     return this.log();
   }
   _passengersEnter() { }
   _passengersLeave() { }
-  floorUp() { }
-  floorDown() { }
+  floorUp() {
+    if(this.floor < this.MAXFLOOR){
+      this.floor++;
+    }
+  }
+  floorDown() { 
+    if(this.floor > 0){
+      this.floor--;
+    }
+  }
   call() { }
   log() { 
     return console.log(`Direction ${this.direction} | Floor: ${this.floor}`);

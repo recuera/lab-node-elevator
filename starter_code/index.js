@@ -1,7 +1,14 @@
 const Elevator = require('./elevator.js');
 
-var myElevator = new Elevator();
+let myElevator = new Elevator();
 
-myElevator.start();
+myElevator.floorUp();
+myElevator.log();
+myElevator.floorDown();
+myElevator.log();
+myElevator.floorDown();
+myElevator.log();
 
-setTimeout(() => myElevator.stop(), 5000)
+
+// myElevator.start()
+// setTimeout(() => myElevator.stop(), 5000)
