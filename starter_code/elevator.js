@@ -12,7 +12,21 @@ class Elevator {
   }
 
   start() { 
-    this.interval = setInterval(() => this.update() ,1000)
+    this.interval = setInterval(() => {
+      if (this.floor < 10 && this.direction == "up"){
+        this.floorUp();
+      }
+      else if (this.floor > 0 && this.direction == "down"){
+        this.floorDown();
+      }
+      if(this.floor == 10){
+        this.direction = "down";
+      }
+      else if(this.floor == 0){
+        this.direction = "up";
+      }
+      this.update();
+    }, 1000)
   }
   stop() { 
     clearInterval(this.interval)
